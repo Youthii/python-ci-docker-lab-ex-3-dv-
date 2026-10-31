@@ -26,15 +26,16 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        run: pwd
-             ls -la
-             python -m pytest -q
+        run: |
+          pwd
+          ls -la
+          python -m pytest -q
  
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/python-ci-lab
+          images: youthii/python-ci-lab
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha,prefix=sha-,format=short
