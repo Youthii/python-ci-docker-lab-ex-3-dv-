@@ -26,8 +26,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        run: python -m pyte-q
-
+        run: pwd
+             ls -la
+             python -m pytest -q
+ 
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
